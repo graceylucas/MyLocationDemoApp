@@ -6,6 +6,12 @@
 //  Copyright © 2015 Mary Grace Lucas. All rights reserved.
 //
 
+
+// For reference, see udemy video on locations
+// https://www.udemy.com/the-complete-ios-9-developer-course/learn/#/lecture/3193432
+
+
+
 import UIKit
 
 @UIApplicationMain
