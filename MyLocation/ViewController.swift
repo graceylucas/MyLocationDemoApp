@@ -25,7 +25,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+        
         
         manager = CLLocationManager()
         
@@ -47,7 +47,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         print(locations)
-
+        
         let userLocation:CLLocation = locations[0]
         
         self.latitudeLabel.text = "\(userLocation.coordinate.latitude)"
@@ -56,13 +56,84 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.speedLabel.text = "\(userLocation.speed)"
         self.altitudeLabel.text = "\(userLocation.altitude)"
         
+        
+        // Start of code to obtain the closest address to the user; this creates the "placemarks" array
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemarks, error) -> Void in
+            
+            if (error != nil) {
+                
+                print(error)
+                
+            } else {
+                
+                // This line tests whether any of the objects in the above "placemarks" array are actual CLPlacemarks
+                let p = CLPlacemark(placemark: placemarks![0] as CLPlacemark)
+                
+                print(p)
+                
+                var addressString:String = ""
+                
+                
+                // subThoroughfare is the keyword Apple uses for an address/house number
+                if let houseNumber = p.subThoroughfare {
+                    addressString = houseNumber + " "
+                    
+                }
+ 
+                // thoroughfare is the keyword Apple uses for a street
+                if let street = p.thoroughfare  {
+                 addressString += street + "\n"
+                    
+                }
+                
+                // sublocality is the keyword Apple uses for a neighborhood
+                if let neighborhood = p.subLocality {
+                    addressString += neighborhood + "\n "
+                    
+                }
+                
+                // subAdministrativeArea is the keyword Apple uses for additional area data (not needed for some addresses)
+                if let subAdministrativeArea = p.subAdministrativeArea  {
+                    addressString += subAdministrativeArea + "\n "
+                    
+                }
+                
+                // subAdministrativeArea is the keyword Apple uses for a city
+                if let city = p.locality  {
+                    addressString += city + ", "
+                    
+                }
+                
+                // administrativeArea is the keyword Apple uses for a state
+                if let state = p.administrativeArea  {
+                    addressString += state + " "
+                    
+                }
+                
+                if let postalCode = p.postalCode  {
+                    addressString += postalCode + "\n"
+                    
+                }
+                
+                if let country = p.country {
+                    addressString += country
+                    
+                }
+                
+                self.addressLabel.text = addressString
+                
+                
+            }
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        // 
+        //
         
         
     }
