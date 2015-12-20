@@ -14,6 +14,7 @@
 		7DE8ED921C25056C00425A0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE8ED901C25056C00425A0D /* LaunchScreen.storyboard */; };
 		7DE8ED9D1C25056C00425A0D /* MyLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8ED9C1C25056C00425A0D /* MyLocationTests.swift */; };
 		7DE8EDA81C25056C00425A0D /* MyLocationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE8EDA71C25056C00425A0D /* MyLocationUITests.swift */; };
+		7DE8EDB61C25057D00425A0D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE8EDB51C25057D00425A0D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7DE8EDA31C25056C00425A0D /* MyLocationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLocationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE8EDA71C25056C00425A0D /* MyLocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationUITests.swift; sourceTree = "<group>"; };
 		7DE8EDA91C25056C00425A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DE8EDB51C25057D00425A0D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DE8EDB61C25057D00425A0D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +80,7 @@
 		7DE8ED7B1C25056C00425A0D = {
 			isa = PBXGroup;
 			children = (
+				7DE8EDB51C25057D00425A0D /* CoreLocation.framework */,
 				7DE8ED861C25056C00425A0D /* MyLocation */,
 				7DE8ED9B1C25056C00425A0D /* MyLocationTests */,
 				7DE8EDA61C25056C00425A0D /* MyLocationUITests */,
@@ -193,6 +197,7 @@
 				TargetAttributes = {
 					7DE8ED831C25056C00425A0D = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = HD5UELD683;
 					};
 					7DE8ED971C25056C00425A0D = {
 						CreatedOnToolsVersion = 7.2;
@@ -399,10 +404,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mgl.MyLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -410,10 +418,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mgl.MyLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -484,6 +495,7 @@
 				7DE8EDAE1C25056C00425A0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DE8EDAF1C25056C00425A0D /* Build configuration list for PBXNativeTarget "MyLocationTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +504,7 @@
 				7DE8EDB11C25056C00425A0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DE8EDB21C25056C00425A0D /* Build configuration list for PBXNativeTarget "MyLocationUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +513,7 @@
 				7DE8EDB41C25056C00425A0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
